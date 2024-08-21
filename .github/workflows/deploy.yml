@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to VPS
         run: |
           ssh -o StrictHostKeyChecking=no root@185.201.9.128 '
-          cd /var/www/567plus.id &&
+          cd /var/www/567plus-id &&
           git stash &&
           git pull origin main &&
           npm install &&
