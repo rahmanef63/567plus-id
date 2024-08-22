@@ -70,7 +70,7 @@ const Header = () => {
                                 </summary>
                                 <ul className="p-2">
                                     <li><Link href="/services">Services</Link></li>
-                                    <li><Link href="/pricing">Pricing</Link></li>
+                                    <li><Link href="/cabang">Cabang</Link></li>
                                 </ul>
                             </details>
                         </li>
