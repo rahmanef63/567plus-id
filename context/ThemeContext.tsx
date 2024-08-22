@@ -1,19 +1,30 @@
 'use client';
 
-import { createContext, useState, ReactNode, useEffect } from 'react';
+import { createContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
 
 interface ThemeContextType {
     theme: string;
-    setTheme: (theme: string) => void;
+    setTheme: Dispatch<SetStateAction<string>>; // Correct type for setTheme
 }
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<string>('light');
+    const [theme, setTheme] = useState<string>('putih');
 
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme); // Ubah atribut data-theme
+        // Only access localStorage on the client
+        if (typeof window !== 'undefined') {
+            const savedTheme = localStorage.getItem('theme') || 'putih';
+            setTheme(savedTheme);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('theme', theme);
+            document.querySelector('html')?.setAttribute('data-theme', theme);
+        }
     }, [theme]);
 
     return (

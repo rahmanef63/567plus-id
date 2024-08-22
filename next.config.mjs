@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    images: {
+        domains: ['assets.aceternity.com', 'img.daisyui.com']
+    }
+}
     // images: {
     //     loader: 'custom',
     //     loaderFile: './my-loader.ts',
@@ -13,6 +17,6 @@ const nextConfig = {
     //     });
     //     return config;
     // },
-};
+
 
 export default nextConfig;

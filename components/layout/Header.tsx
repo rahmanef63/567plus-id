@@ -1,3 +1,5 @@
+// components/layout/Header.tsx
+
 'use client';
 
 import Image from 'next/image'
@@ -16,7 +18,7 @@ const Header = () => {
     const { theme } = themeContext;
     return (
         <header>
-            <div className="navbar relative">
+            <div className="navbar relative ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" >
@@ -35,7 +37,7 @@ const Header = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm theme-controller dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <li><Link href="/about">About</Link></li>
                             <li>
                                 <Link href="/contact">Contact</Link>
@@ -50,7 +52,7 @@ const Header = () => {
 
                     {/* Ganti logo berdasarkan tema */}
                     <Link href="/">
-                        {theme === 'dark' ? (
+                        {theme === 'hitam' ? (
                             <Image src="/567LogoPutih.svg" alt="logo" width={50} height={40} className="md:pl-4" />
                         ) : (
                             <Image src="/567LogoHitam.svg" alt="logo" width={50} height={40} className="md:pl-4" />
@@ -58,15 +60,17 @@ const Header = () => {
                     </Link>
                 </div>
 
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-center theme-controller hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
+                        <li><Link href="/about">About</Link></li>
                         <li>
                             <details>
-                                <summary>Parent</summary>
+                                <summary>
+                                    <Link href="/contact">Contact</Link>
+                                </summary>
                                 <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
+                                    <li><Link href="/services">Services</Link></li>
+                                    <li><Link href="/pricing">Pricing</Link></li>
                                 </ul>
                             </details>
                         </li>
