@@ -12,7 +12,7 @@ const HeroSection = () => {
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">laundry 567plus</h1>
                     <p className="mb-5">
-                        laundry self service pertama di condet, satu jam jadi inshallah.
+                        laundry self service pertama di condet, satu jam jadi inshallah bisa, allahuakbar.
                     </p>
                     <button className="btn btn-primary">Get Started</button>
                 </div>
