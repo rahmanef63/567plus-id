@@ -34,7 +34,7 @@ jobs:
 
     - name: Deploy to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no root@185.201.9.128 << 'EOF'
+        ssh -T -o StrictHostKeyChecking=no root@185.201.9.128 << 'EOF'
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm use 20.17.0
