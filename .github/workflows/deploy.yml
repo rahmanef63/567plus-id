@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: Deploy to VPS for 567plus-id
 
 on:
   push:
@@ -10,29 +10,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3  # Updated to v3
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.7.0  # Updated to v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.17.0'  # Specify the correct Node.js version
 
-      - name: Add SSH key scan
-        run: |
-          ssh-keyscan 185.201.9.128 >> ~/.ssh/known_hosts
+    - name: Install dependencies
+      run: npm install
 
-      - name: Test SSH Connection
-        run: |
-          ssh -o StrictHostKeyChecking=no root@185.201.9.128 'echo "SSH connection successful"'
+    - name: Build the application
+      run: npm run build
 
-      - name: Deploy to VPS
-        run: |
-          ssh -o StrictHostKeyChecking=no root@185.201.9.128 '
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Add SSH key scan
+      run: ssh-keyscan 185.201.9.128 >> ~/.ssh/known_hosts
+
+    - name: Deploy to VPS
+      run: |
+        ssh -o StrictHostKeyChecking=no root@185.201.9.128 << 'EOF'
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm use 20.17.0
           cd /var/www/567plus-id &&
-          git stash &&
           git pull origin main &&
           npm install &&
           npm run build &&
           pm2 restart 567plus-id
-          '
+        EOF
