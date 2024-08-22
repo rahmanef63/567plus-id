@@ -12,11 +12,11 @@ const HeroSection: React.FC = () => {
             <Image
                 src={BACKGROUND_IMAGE}
                 alt="Hero Laundry"
-                layout="fill"
-                objectFit="cover"
                 quality={75}
-                className="z-[-1]"
                 priority
+                fill
+                style={{ objectFit: 'cover' }}
+                className="z-[-1]"
             />
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-neutral-content text-center relative z-10">

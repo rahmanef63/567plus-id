@@ -39,8 +39,10 @@ jobs:
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm use 20.17.0
           cd /var/www/567plus-id &&
+          git stash &&
           git pull origin main &&
           npm install &&
           npm run build &&
           pm2 restart 567plus-id
+          git stash pop # Optional: If you want to reapply the stashed changes
         EOF

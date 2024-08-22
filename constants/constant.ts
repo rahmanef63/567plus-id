@@ -130,7 +130,7 @@ export const HOMEPAGE = {
         H3: "Layanan Laundry Premium untuk Hidup yang Sibuk",
         DESCRIPTION: "Kami menyediakan solusi laundry self-service dan full-service untuk memastikan pakaian Anda selalu bersih, segar, dan dikirim tepat waktu. Lokasi yang nyaman di seluruh kota dengan layanan jemput antar tersedia.",
         CTA_BUTTON: "Mulai Sekarang",
-        BACKGROUND_IMAGE: "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp",
+        BACKGROUND_IMAGE: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=2278&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         HERO_IMAGE: "/images/hero-laundry.png",
         TAGLINE: "Mudah, Cepat, Bersih!"
     },

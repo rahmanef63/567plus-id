@@ -74,7 +74,7 @@ const Header = () => {
                                 </ul>
                             </details>
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li><a>Item 4</a></li>
                     </ul>
                 </div>
                 <div className="navbar-end gap-4 pr-4">
