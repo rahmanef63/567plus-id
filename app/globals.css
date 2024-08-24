@@ -1,3 +1,88 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background-light: 255 100% 100%;
+    --foreground-light: 0 0% 0%;
+    --background-dark: 0 0% 0%;
+    --foreground-dark: 255 100% 100%;
+    --accent-color: 270 100% 50%; /* Ungu */
+    --hover-color: 0 0% 50%; /* Abu-abu */
+    --overlay-light: 255 100% 100%;
+    --overlay-dark: 0 0% 0%;
+  }
+
+  /* Light mode styles */
+  body {
+    @apply bg-[hsl(var(--background-light))] text-[hsl(var(--foreground-light))];
+  }
+
+  .bg-opacity-60 {
+    --tw-bg-opacity: 0.6;
+  }
+
+  a {
+    @apply text-[hsl(var(--foreground-light))];
+  }
+
+  a.accent {
+    @apply text-[hsl(var(--accent-color))];
+  }
+
+  button {
+    @apply bg-transparent border border-[hsl(var(--foreground-light))] text-[hsl(var(--foreground-light))];
+  }
+
+  button:hover {
+    @apply bg-[hsl(var(--hover-color))] text-[hsl(var(--foreground-dark))];
+  }
+
+  /* Dark mode styles */
+  .dark body {
+    @apply bg-[hsl(var(--background-dark))] text-[hsl(var(--foreground-dark))];
+  }
+
+  .dark a {
+    @apply text-[hsl(var(--foreground-dark))];
+  }
+
+  .dark button {
+    @apply bg-transparent border border-[hsl(var(--foreground-dark))] text-[hsl(var(--foreground-dark))];
+  }
+
+  .dark button:hover {
+    @apply bg-[hsl(var(--hover-color))] text-[hsl(var(--foreground-light))];
+  }
+
+  /* Overlay styles */
+  .overlay-light {
+    @apply bg-[hsl(var(--overlay-light))] bg-opacity-60;
+  }
+
+  .overlay-dark {
+    @apply bg-[hsl(var(--overlay-dark))] bg-opacity-60;
+  }
+
+  /* Handling focus states */
+  a:focus,
+  button:focus {
+    @apply outline-none ring-2 ring-[hsl(var(--accent-color))];
+  }
+
+  /* Adding transition for smoother theme switching */
+  body,
+  a,
+  button {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
+  /* Handling hover on accent links */
+  a.accent:hover {
+    @apply text-[hsl(var(--hover-color))] underline;
+  }
+
+
+  
+}

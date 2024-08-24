@@ -1,26 +1,23 @@
-import { text } from "stream/consumers";
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  darkMode: ['class'],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{ts,tsx}',   // Pastikan path ini benar
+    './components/**/*.{ts,tsx}',  // Pastikan path ini benar
+    './app/**/*.{ts,tsx}',   // Pastikan path ini benar
+    './src/**/*.{ts,tsx}',   // Pastikan path ini benar
   ],
   theme: {
     extend: {
+      "parallex": "url('') "
+      // Add your custom theme settings
     },
-    dark: {
-      background: '#121212',
-      text: '#fff'
-    },
-    light: {
-      background: '#fff',
-      text: '#000'
-    }
   },
-  plugins: [
-    require('daisyui'),
-  ],
+  daisyui: {
+    themes: ['light', 'dark'],
+  },
+  plugins: [require('daisyui')],
 };
+
 export default config;

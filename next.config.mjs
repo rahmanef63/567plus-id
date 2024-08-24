@@ -1,8 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['assets.aceternity.com', 'img.daisyui.com', 'images.unsplash.com', 'images.remotePatterns']
-    }
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'assets.aceternity.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'img.daisyui.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+            },
+        ],
+    },
 }
     // images: {
     //     loader: 'custom',
