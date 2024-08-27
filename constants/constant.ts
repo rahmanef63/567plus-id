@@ -23,19 +23,7 @@ export interface ServicesSection {
     SERVICES: ServiceItem[];
 }
 
-export interface LocationItem {
-    NAME: string;
-    ADDRESS: string;
-    PHONE: string;
-}
 
-export interface LocationsSection {
-    H1: string;
-    DESCRIPTION: string;
-    LOCATIONS: LocationItem[];
-    MAP_IMAGE: string;
-    CTA_BUTTON: string;
-}
 
 export interface TestimonialItem {
     CUSTOMER: string;
@@ -124,6 +112,37 @@ export interface Utils {
 }
 
 
+
+export interface SectionData {
+    id: number;
+    title: string;
+    description: string;
+    link: string;
+}
+
+export const sectionsData: SectionData[] = [
+    {
+        id: 1,
+        title: "Our Services",
+        description: "We provide fast laundry services...",
+        link: "/services"
+    },
+    {
+        id: 2,
+        title: "Pricing Plans",
+        description: "Affordable and transparent pricing...",
+        link: "/pricing"
+    },
+    {
+        id: 3,
+        title: "About Us",
+        description: "Learn more about our journey...",
+        link: "/about"
+    },
+];
+
+
+
 export const HOMEPAGE = {
     HERO_SECTION: {
         H1: "Selamat Datang di Layanan Laundry 567plus",
@@ -158,20 +177,7 @@ export const HOMEPAGE = {
             }
         ]
     },
-    LOCATIONS_SECTION: {
-        H1: "Temukan Lokasi Terdekat",
-        DESCRIPTION: "Kami memiliki 6 lokasi yang strategis di seluruh kota, termasuk Condet, Pucung, Depok, Kelapa Dua, Sentra Timur, dan Bogor.",
-        LOCATIONS: [
-            { NAME: "Condet", ADDRESS: "Jl. Raya Condet No. 12, Jakarta", PHONE: "021-1234567" },
-            { NAME: "Pucung", ADDRESS: "Jl. Pucung Raya No. 8, Bekasi", PHONE: "021-7654321" },
-            { NAME: "Depok", ADDRESS: "Jl. Margonda Raya No. 24, Depok", PHONE: "021-9876543" },
-            { NAME: "Kelapa Dua", ADDRESS: "Jl. Kelapa Dua No. 10, Tangerang", PHONE: "021-5432167" },
-            { NAME: "Sentra Timur", ADDRESS: "Jl. Sentra Timur Blok B, Jakarta", PHONE: "021-9988776" },
-            { NAME: "Bogor", ADDRESS: "Jl. Pajajaran No. 15, Bogor", PHONE: "021-5566778" }
-        ],
-        MAP_IMAGE: "/images/map-locations.png",
-        CTA_BUTTON: "Lihat Lokasi di Peta"
-    },
+
     TESTIMONIALS_SECTION: {
         H1: "Apa Kata Pelanggan Kami",
         TESTIMONIALS: [

@@ -1,12 +1,17 @@
-import HeroSection from "@/components/home/HeroSection";
-import { ServiecOverview } from "@/components/home/ServicesOverview";
+import HeroSection from "@/components/section/HeroSection";
+import LocationSection from "@/components/section/LocationSection";
+import { ServiceOverview } from "@/components/section/ServicesSection";
+import { TestimonialsSection } from "@/components/section/Testimonials";
+
 
 export default function Home() {
   return (
     <main>
       <div className="flex flex-col h-full justify-center mx-auto  ">
         <HeroSection />
-        <ServiecOverview />
+        <ServiceOverview />
+        <LocationSection />
+        <TestimonialsSection />
       </div>
     </main>
   );

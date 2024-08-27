@@ -86,3 +86,9 @@
 
   
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+

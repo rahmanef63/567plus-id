@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 interface ButtonWithParticlesProps {
     text: string;
     className?: string;
+    href?: string;
 }
 
 const ButtonWithParticles: React.FC<ButtonWithParticlesProps> = ({ text, className }) => {
