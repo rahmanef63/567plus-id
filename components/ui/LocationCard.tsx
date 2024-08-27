@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 
 interface LocationProps {
@@ -10,7 +11,7 @@ const LocationCard: React.FC<LocationProps> = ({ title, address, src }) => {
     return (
         <div className="card card-compact bg-base-100 h-[full] w-96 shadow-xl">
             <figure>
-                <img
+                <Image
                     src={src}
                     alt={title}
                 />

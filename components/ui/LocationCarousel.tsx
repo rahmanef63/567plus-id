@@ -5,6 +5,7 @@ import React, {
     useState,
     createContext,
     useContext,
+    useCallback,
 } from "react";
 import {
     IconArrowNarrowLeft,
@@ -69,7 +70,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         }
     };
 
-    const handleCardClose = (index: number) => {
+    const handleCardClose = useCallback((index: number) => {
         if (carouselRef.current) {
             const cardWidth = isMobile() ? 230 : 384; // (md:w-96)
             const gap = isMobile() ? 4 : 8;
@@ -80,7 +81,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             });
             setCurrentIndex(index);
         }
-    };
+    }, []);
 
     const isMobile = () => {
         return window && window.innerWidth < 768;
@@ -105,7 +106,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                     <div
                         className={cn(
                             "flex flex-row justify-start gap-4 pl-4",
-                            "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
+                            "max-w-7xl mx-auto"
                         )}
                     >
                         {items.map((item, index) => (
@@ -166,6 +167,11 @@ export const Card = ({
     const containerRef = useRef<HTMLDivElement>(null);
     const { onCardClose, currentIndex } = useContext(CarouselContext);
 
+    const handleClose = useCallback(() => {
+        setOpen(false);
+        onCardClose(index);
+    }, [index, onCardClose]);
+
     useEffect(() => {
         function onKeyDown(event: KeyboardEvent) {
             if (event.key === "Escape") {
@@ -181,17 +187,12 @@ export const Card = ({
 
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
-    }, [open]);
+    }, [open, handleClose]);
 
-    useOutsideClick(containerRef, () => handleClose());
+    useOutsideClick(containerRef, handleClose);
 
     const handleOpen = () => {
         setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-        onCardClose(index);
     };
 
     return (
